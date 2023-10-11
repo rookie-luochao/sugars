@@ -41,5 +41,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
+          # test
+          # BRANCH: gh-pages
           FOLDER: docs # The folder the action should deploy
