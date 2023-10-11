@@ -14,11 +14,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       # 指定node版本
-      # - name: Use Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '16.x'
-      #     registry-url: 'https://registry.npmjs.org'
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
       # 依赖缓存策略
       # - name: Cache
       #   id: cache-dependencies
@@ -27,16 +27,16 @@ jobs:
       #     path: |
       #       **/node_modules
       #     key: ${{runner.OS}}-${{hashFiles('**/pnpm-lock.yaml')}}
-      # - name: Install pnpm
-      #   run: npm install -g pnpm@7.5.0
+      - name: Install pnpm
+        run: npm install -g pnpm@7.5.0
       # 依赖下载
       # - name: Installing Dependencies
       #   if: steps.cache-dependencies.outputs.cache-hit != 'true'
       #   run: pnpm install
-      # 打包
+      # 打包 & 下载
       - name: Install & Build
         run: |
-          npm install
+          pnpm install
           npm run build
       # 部署
       - name: Deploy 🚀
