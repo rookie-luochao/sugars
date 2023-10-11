@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - master
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 jobs:
   build-and-deploy:
     # 指定操作系统
@@ -14,32 +14,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       # 指定node版本
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
+      # - name: Use Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '16.x'
+      #     registry-url: 'https://registry.npmjs.org'
       # 依赖缓存策略
-      - name: Cache
-        id: cache-dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            **/node_modules
-          key: ${{runner.OS}}-${{hashFiles('**/pnpm-lock.yaml')}}
-      - name: Install pnpm
-        run: npm install -g pnpm@7.5.0
+      # - name: Cache
+      #   id: cache-dependencies
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: |
+      #       **/node_modules
+      #     key: ${{runner.OS}}-${{hashFiles('**/pnpm-lock.yaml')}}
+      # - name: Install pnpm
+      #   run: npm install -g pnpm@7.5.0
       # 依赖下载
-      - name: Installing Dependencies
-        if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: pnpm install
+      # - name: Installing Dependencies
+      #   if: steps.cache-dependencies.outputs.cache-hit != 'true'
+      #   run: pnpm install
       # 打包
-      - name: Running Build
-        run: pnpm run build
+      - name: Install & Build
+        run: |
+          npm install
+          npm run build
       # 部署
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist # The folder the action should deploy
+          branch: gh-pages
+          folder: dist
