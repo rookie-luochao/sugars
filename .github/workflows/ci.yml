@@ -34,12 +34,9 @@ jobs:
       # 打包
       - name: Running Build
         run: pnpm run build
-      # 测试
-      # - name: Running Test
-      #   run: pnpm run test-unit
-      # 发布
-      # - name: Running Publish
-      #   run: npm publish --access=public
-      #   env:
-      #     # NPM_TOKEN is access token
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # 部署
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          BRANCH: gh-pages
+          FOLDER: /docs # The folder the action should deploy
