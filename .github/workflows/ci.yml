@@ -6,7 +6,7 @@ on:
 # permissions:
 #   contents: write
 jobs:
-  build:
+  build-and-deploy:
     # 指定操作系统
     runs-on: ubuntu-latest
     steps:
