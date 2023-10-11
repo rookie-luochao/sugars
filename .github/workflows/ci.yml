@@ -3,10 +3,11 @@ on:
   push:
     branches:
       - master
-# permissions:
-#   contents: write
+permissions:
+  contents: write
 jobs:
   build-and-deploy:
+    concurrency: ci-${{ github.ref }}
     # 指定操作系统
     runs-on: ubuntu-latest
     steps:
@@ -40,7 +41,7 @@ jobs:
           npm run build
       # 部署
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           branch: gh-pages
