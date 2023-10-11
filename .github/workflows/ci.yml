@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - master
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 jobs:
   build:
     # 指定操作系统
@@ -41,6 +41,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          # test
-          # BRANCH: gh-pages
-          FOLDER: docs # The folder the action should deploy
+          BRANCH: gh-pages
+          FOLDER: dist # The folder the action should deploy
