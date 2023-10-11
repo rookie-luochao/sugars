@@ -44,10 +44,10 @@ export default function Login() {
         initialValues={{ username: "", password: "", remember: true }}
         onFinish={onFinish}
       >
-        <Form.Item name="username" rules={[{ required: true, message: "Please input your Username!" }]}>
+        <Form.Item name="username" rules={[{ required: true, message: "请输入用户名!" }]}>
           <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder={defaultUserInfo.username} />
         </Form.Item>
-        <Form.Item name="password" rules={[{ required: true, message: "Please input your Password!" }]}>
+        <Form.Item name="password" rules={[{ required: true, message: "请输入密码!" }]}>
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
@@ -56,17 +56,17 @@ export default function Login() {
         </Form.Item>
         <Form.Item>
           <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>记住密码</Checkbox>
           </Form.Item>
           <a css={{ float: "right" }} href="">
-            Forgot password
+            忘记密码
           </a>
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" className="login-form-button" style={{ width: "100%" }}>
             Log in
           </Button>
-          Or <a href="">register now!</a>
+          Or <a href="">立即注册!</a>
         </Form.Item>
       </Form>
     </div>
