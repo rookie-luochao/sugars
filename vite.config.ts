@@ -6,6 +6,7 @@ export default defineConfig({
   // build: {
   //   outDir: "docs",
   // },
+  base: "/sugars/",
   plugins: [
     react({
       babel: {
