@@ -1,5 +1,5 @@
 import { Navigate, RouteObject } from "react-router-dom";
-import { loginRoutes } from "./login/routes";
+import { loginFullPath, loginRoutes } from "./login/routes";
 import { mainRoutes } from "./mainLayout/routes";
 import { ErrorBoundaryWrapOutlet } from "./core/error-boundary";
 import { domainChildPath } from "./config";
@@ -7,12 +7,12 @@ import { domainChildPath } from "./config";
 function getAppRoutes() {
   return [
     {
-      path: "/",
+      path: domainChildPath,
       element: <ErrorBoundaryWrapOutlet />,
       children: [
         {
           index: true,
-          element: <Navigate to={`${domainChildPath}/login`} />,
+          element: <Navigate to={loginFullPath} />,
         },
         loginRoutes,
         mainRoutes,

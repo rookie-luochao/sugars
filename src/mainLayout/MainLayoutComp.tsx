@@ -15,6 +15,7 @@ import { flexCenterOpts } from "../core/style/utils";
 import { useNavigate } from "react-router-dom";
 import { dashboardModuleName } from "../pages/module/routes";
 import { utilListModuleName } from "../pages/util-list/routes";
+import { domainChildPath } from "../config";
 
 export const globalHiddenInMenuParentPath = "globalHiddenInMenuParentPath";
 
@@ -54,7 +55,7 @@ export function MenuComp() {
     return getMenus({
       routes: mainRoutes?.children || [],
       modulePathToIconMap,
-      to: mainLayoutPath,
+      to: `${domainChildPath}/${mainLayoutPath}`,
     });
   }, []);
 
@@ -162,7 +163,7 @@ export function ToolBar() {
                 label: "退出登录",
                 onClick() {
                   clear();
-                  navigate("/login");
+                  navigate(`/${domainChildPath}/login`);
                 },
               },
             ],
