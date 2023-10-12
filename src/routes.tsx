@@ -12,7 +12,7 @@ function getAppRoutes() {
       children: [
         {
           index: true,
-          element: <Navigate to={`/${domainChildPath}/login`} />,
+          element: <Navigate to={`${domainChildPath}/login`} />,
         },
         loginRoutes,
         mainRoutes,
