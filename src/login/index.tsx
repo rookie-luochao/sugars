@@ -59,12 +59,12 @@ export default function Login() {
             <Checkbox>记住密码</Checkbox>
           </Form.Item>
           <a css={{ float: "right" }} href="">
-            忘记密码？？？？
+            忘记密码？
           </a>
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" className="login-form-button" style={{ width: "100%" }}>
-            Log in
+            登录
           </Button>
           Or <a href="">立即注册!</a>
         </Form.Item>

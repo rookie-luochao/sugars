@@ -16,3 +16,5 @@ const appConfig: IConfig = {
 };
 
 export default appConfig;
+
+export const domainChildPath = "sugars";

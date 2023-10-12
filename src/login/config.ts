@@ -1,4 +1,6 @@
-export const defaultLinkPath = "/main/dashboard";
+import { mainLayoutPath } from "../mainLayout/routes";
+
+export const defaultLinkPath = `/${mainLayoutPath}/dashboard`;
 
 export const defaultUserInfo = {
   username: "admin",
