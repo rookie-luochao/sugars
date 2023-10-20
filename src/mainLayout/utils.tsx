@@ -42,6 +42,7 @@ export const getMenus = ({
     return getItem({
       key: routePath,
       label: <Link to={routePath}>{item.id}</Link>,
+      icon: item.path && modulePathToIconMap?.[item.path],
     });
   });
 };

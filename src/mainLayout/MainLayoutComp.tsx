@@ -4,7 +4,7 @@ import { useLoginStore } from "../core/store";
 import LogoMiniIcon from "../assets/images/logo_mini.svg";
 import LogoIcon from "../assets/images/logo.svg";
 import { uiListModuleName } from "../pages/ui-list/routes";
-import { BuildOutlined, ToolOutlined } from "@ant-design/icons";
+import { BuildOutlined, DashboardOutlined, ToolOutlined } from "@ant-design/icons";
 import { Dictionary, parseQueryString } from "../core/router/utils";
 import { ReactNode, useEffect, useMemo, useState } from "react";
 import { find } from "lodash-es";
@@ -46,6 +46,7 @@ export function MenuComp() {
   }, [pathname]);
 
   const modulePathToIconMap = {
+    [dashboardModuleName]: <DashboardOutlined />,
     [uiListModuleName]: <BuildOutlined />,
     [utilListModuleName]: <ToolOutlined />,
   } as Dictionary<ReactNode>;

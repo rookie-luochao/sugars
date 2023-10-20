@@ -1,7 +1,7 @@
-import { UIOne } from "./UIOne";
+import { DragTableDemo } from "./table/demo";
 
 export const uiListModuleName = "ui-list";
-export const uiListModuleNameDefaultPath = "icon";
+export const uiListModuleNameDefaultPath = "table";
 
 export const uiListRoutes = {
   path: uiListModuleName,
@@ -9,8 +9,8 @@ export const uiListRoutes = {
   children: [
     {
       path: uiListModuleNameDefaultPath,
-      id: "图标",
-      element: <UIOne />,
+      id: "拖拽列排序表格",
+      element: <DragTableDemo />,
     },
   ],
 };
