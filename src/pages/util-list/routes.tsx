@@ -1,4 +1,4 @@
-import { RequestDemo } from "./RequestDemo";
+import { RequestDemo } from "./request/RequestDemo";
 
 export const utilListModuleName = "util-list";
 export const utilListModuleNameDefaultPath = "request";
