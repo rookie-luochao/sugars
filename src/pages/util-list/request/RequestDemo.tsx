@@ -1,5 +1,9 @@
-import { Card } from "antd";
+import { Button, Card, Spin } from "antd";
 import { CodeMarkDown } from "../../ui-list/markdown";
+import { useQuery } from "@tanstack/react-query";
+import { HelloGet } from "../../../api/hello";
+import { useState } from "react";
+import { sample } from "lodash-es";
 
 export function RequestDemo() {
   const getRequestDemo = `
@@ -33,6 +37,15 @@ export function RequestDemo() {
     </Spin>
   ~~~
   `;
+  const names = ["张三", "李四", "王五", "赵六", "孙七", "刘八"];
+  const [name, setName] = useState(names[0]);
+
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: ["hello", name],
+    queryFn: () => {
+      return HelloGet({ name: name });
+    },
+  });
 
   const postRequestDemo = `
   ~~~js
@@ -93,6 +106,15 @@ export function RequestDemo() {
     <div css={{ "& > * + *": { marginTop: 12 } }}>
       <Card title="获取数据" bordered={false}>
         <CodeMarkDown dataSource={getRequestDemo} />
+        <div css={{ display: "flex", margin: "1em 0em", "& > * + *": { marginLeft: "1em" } }}>
+          <Button type="primary" onClick={() => refetch()}>
+            重新获取
+          </Button>
+          <Button onClick={() => setName(sample(names) || names[0])}>变换请求</Button>
+        </div>
+        <Spin spinning={isLoading}>
+          <div>接口返回数据：{data?.data}</div>
+        </Spin>
       </Card>
       <Card title="更新数据" bordered={false}>
         <CodeMarkDown dataSource={postRequestDemo} />
